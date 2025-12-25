@@ -6,7 +6,9 @@ import isitw.spring.tp1.entity.Commande;
 import isitw.spring.tp1.entity.CommandeItem;
 import isitw.spring.tp1.service.facade.CommandeService;
 import isitw.spring.tp1.service.facade.EtatCommandeService;
+import isitw.spring.tp1.service.facade.PaiementService;
 import jakarta.transaction.Transactional;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -86,12 +88,13 @@ public class CommandeServiceImpl implements CommandeService {
         }
     }
 
-    public CommandeServiceImpl(CommandeDao dao, EtatCommandeService etatCommandeService) {
+    public CommandeServiceImpl(CommandeDao dao, EtatCommandeService etatCommandeService, @Lazy PaiementService paiementService) {
         this.dao = dao;
         this.etatCommandeService = etatCommandeService;
+        this.paiementService = paiementService;
     }
 
     private CommandeDao dao;
     private EtatCommandeService etatCommandeService;
-    private PaiementServiceImpl paiementService;
+    private PaiementService paiementService;
 }

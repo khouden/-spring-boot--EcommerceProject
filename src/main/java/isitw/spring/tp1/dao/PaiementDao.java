@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface PaiementDao extends JpaRepository<Paiement, Long> {
         Paiement findByCode(String code);
+        List<Paiement> findByCommandeRef(String ref);
 
         int deleteByCommandeRef(String ref);
 }

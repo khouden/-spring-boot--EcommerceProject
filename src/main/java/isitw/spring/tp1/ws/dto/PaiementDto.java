@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 public class PaiementDto {
     private String code;
     private BigDecimal montant;
+    private LocalDateTime datePaiement;
 
     public String getCode() {
         return code;
@@ -22,4 +23,13 @@ public class PaiementDto {
     public void setMontant(BigDecimal montant) {
         this.montant = montant;
     }
+
+    public LocalDateTime getDatePaiement() {
+        return datePaiement;
+    }
+
+    public void setDatePaiement(LocalDateTime datePaiement) {
+        this.datePaiement = datePaiement;
+    }
+
 }

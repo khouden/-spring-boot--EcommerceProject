@@ -9,6 +9,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class PaiementServiceImpl implements PaiementService {
@@ -31,10 +32,20 @@ public class PaiementServiceImpl implements PaiementService {
         return dao.findByCode(code);
     }
 
-    @Override
+    public List<Paiement> findByCommandeRef(String ref){
+        Commande commande = commandeService.findByRef(ref);
+        return dao.findByCommandeRef(ref);
+    }
+
     @Transactional
+    @Override
     public int deleteByCommandeRef(String ref) {
         return dao.deleteByCommandeRef(ref);
+    }
+
+    @Override
+    public List<Paiement> findAll(){
+        return dao.findAll();
     }
 
     public PaiementServiceImpl(PaiementDao dao, CommandeService commandeService){

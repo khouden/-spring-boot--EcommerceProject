@@ -26,6 +26,18 @@ public class PaiementWs {
         return converter.toDto(paiement);
     }
 
+    @GetMapping
+    public List<PaiementDto> findAll(){
+        List<Paiement> paiements = service.findAll();
+        return converter.toDtos(paiements);
+    }
+
+    @GetMapping("cmdRef/{ref}")
+    public List<PaiementDto> findByCommandeRef(@PathVariable String ref){
+        List<Paiement> paiements = service.findByCommandeRef(ref);
+        return converter.toDtos(paiements);
+    }
+
     @PostMapping("cmdRef/{cmdRef}")
     public int payer(@PathVariable String cmdRef, @RequestBody PaiementDto paiementDto){
         Paiement paiement = converter.toItem(paiementDto);
