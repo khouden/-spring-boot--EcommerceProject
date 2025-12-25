@@ -1,45 +1,49 @@
 package isitw.spring.tp1.ws.facade;
 
 import isitw.spring.tp1.entity.Commande;
+import isitw.spring.tp1.entity.EtatCommande;
 import isitw.spring.tp1.service.facade.CommandeService;
+import isitw.spring.tp1.service.facade.EtatCommandeService;
 import isitw.spring.tp1.ws.converter.CommandeConverter;
+import isitw.spring.tp1.ws.converter.EtatCommandeConverter;
 import isitw.spring.tp1.ws.dto.CommandeDto;
+import isitw.spring.tp1.ws.dto.EtatCommandeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/commande/")
-public class CommandeWs {
+@RequestMapping("/api/etat_commande/")
+public class EtatCommandeWs {
 
     @Autowired
-    private CommandeService service;
+    private EtatCommandeService service;
 
     @Autowired
-    private CommandeConverter converter;
+    private EtatCommandeConverter converter;
 
     @PostMapping
-    public int save(@RequestBody CommandeDto commandeDto) {
-        Commande item = converter.toItem(commandeDto);
+    public int save(@RequestBody EtatCommandeDto etatCommandeDto) {
+        EtatCommande item = converter.toItem(etatCommandeDto);
         return service.save(item);
     }
 
     @GetMapping
-    public List<CommandeDto> findAll() {
-        List<Commande> commands = service.findAll();
-        List<CommandeDto> dtos = converter.toDtos(commands);
+    public List<EtatCommandeDto> findAll() {
+        List<EtatCommande> etatCommands = service.findAll();
+        List<EtatCommandeDto> dtos = converter.toDtos(etatCommands);
         return dtos;
     }
 
-    @GetMapping("ref/{ref}")
-    public CommandeDto findByRef(@PathVariable String ref) {
-        Commande commande = service.findByRef(ref);
-        return converter.toDto(commande);
+    @GetMapping("code/{code}")
+    public EtatCommandeDto findByCode(@PathVariable String code) {
+        EtatCommande etatCommande = service.findByCode(code);
+        return converter.toDto(etatCommande);
     }
 
-    @DeleteMapping("ref/{ref}")
-    public int deleteByRef(@RequestParam String ref) {
-        return service.deleteByRef(ref);
+    @DeleteMapping("code/{code}")
+    public int deleteByCode(@PathVariable String code) {
+        return service.deleteByCode(code);
     }
 }

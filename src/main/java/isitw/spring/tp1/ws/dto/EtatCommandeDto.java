@@ -1,39 +1,28 @@
 package isitw.spring.tp1.ws.dto;
 
-import isitw.spring.tp1.entity.CommandeItem;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 
-public class CommandeDto {
-    private String ref;
-    private BigDecimal total;
-    private BigDecimal totalPaye;
+public class EtatCommandeDto {
+    private String code;
+    private String libelle;
 
-
-    public String getRef() {
-        return ref;
+    public String getCode() {
+        return code;
     }
 
-    public void setRef(String ref) {
-        this.ref = ref;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public BigDecimal getTotal() {
-        return total;
+    public String getLibelle() {
+        return libelle;
     }
 
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
-
-    public BigDecimal getTotalPaye() {
-        return totalPaye;
-    }
-
-    public void setTotalPaye(BigDecimal totalPaye) {
-        this.totalPaye = totalPaye;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 }

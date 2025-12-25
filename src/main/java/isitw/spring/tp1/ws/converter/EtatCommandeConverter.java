@@ -1,30 +1,31 @@
 package isitw.spring.tp1.ws.converter;
 
 import isitw.spring.tp1.entity.Commande;
+import isitw.spring.tp1.entity.EtatCommande;
 import isitw.spring.tp1.ws.dto.CommandeDto;
+import isitw.spring.tp1.ws.dto.EtatCommandeDto;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class CommandeConverter {
+public class EtatCommandeConverter {
 
 
 
-    public Commande toItem(CommandeDto dto){
-        Commande item  = new Commande();
+    public EtatCommande toItem(EtatCommandeDto dto){
+        EtatCommande item  = new EtatCommande();
         BeanUtils.copyProperties(dto, item);
         return item;
     }
-    public CommandeDto toDto(Commande item){
-        CommandeDto dto  = new CommandeDto();
+    public EtatCommandeDto toDto(EtatCommande item){
+        EtatCommandeDto dto  = new EtatCommandeDto();
         BeanUtils.copyProperties(item, dto);
         return dto;
     }
 
-    public List<CommandeDto> toDtos(List<Commande> commandeList) {
-        return commandeList.stream().map(e -> toDto(e)).toList();
+    public List<EtatCommandeDto> toDtos(List<EtatCommande> etatCommandeList) {
+        return etatCommandeList.stream().map(e -> toDto(e)).toList();
     }
 }
