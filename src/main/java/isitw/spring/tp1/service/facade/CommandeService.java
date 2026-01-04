@@ -12,6 +12,8 @@ public interface CommandeService {
 
     public Commande findByRef(String ref);
 
+    public List<Commande> findByEtatCommandeCode(String code);
+
     int payer(String ref, BigDecimal montant);
 
     int deleteByRef(String ref);

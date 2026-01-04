@@ -58,6 +58,11 @@ public class CommandeServiceImpl implements CommandeService {
     }
 
     @Override
+    public List<Commande> findByEtatCommandeCode(String code){
+        return dao.findByEtatCommandeCode(code);
+    }
+
+    @Override
     public int payer(String ref, BigDecimal montant) {
         Commande commande = findByRef(ref);
         if (commande == null) {

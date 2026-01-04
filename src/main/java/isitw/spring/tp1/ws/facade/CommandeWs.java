@@ -38,6 +38,12 @@ public class CommandeWs {
         return converter.toDto(commande);
     }
 
+    @GetMapping("/etatCode/{code}")
+    public List<CommandeDto> findByEtatCommandeCode(@PathVariable String code) {
+        List<Commande> commandes = service.findByEtatCommandeCode(code);
+        return converter.toDtos(commandes);
+    }
+
     @DeleteMapping("ref/{ref}")
     public int deleteByRef(@PathVariable String ref) {
         return service.deleteByRef(ref);

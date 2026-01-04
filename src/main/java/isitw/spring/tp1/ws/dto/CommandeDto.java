@@ -1,7 +1,6 @@
 package isitw.spring.tp1.ws.dto;
 
 import isitw.spring.tp1.entity.EtatCommande;
-
 import java.math.BigDecimal;
 
 
