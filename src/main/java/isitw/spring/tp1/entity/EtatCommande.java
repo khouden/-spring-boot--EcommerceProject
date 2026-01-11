@@ -13,6 +13,14 @@ public class EtatCommande {
     private String libelle;
 
 
+    public EtatCommande(String code, String libelle) {
+        this.code = code;
+        this.libelle = libelle;
+    }
+
+    public EtatCommande() {
+    }
+
     public Long getId() {
         return id;
     }

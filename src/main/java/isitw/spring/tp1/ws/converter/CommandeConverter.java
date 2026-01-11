@@ -18,8 +18,10 @@ public class CommandeConverter {
         return item;
     }
     public CommandeDto toDto(Commande item){
+        if (item == null) return null;
         CommandeDto dto  = new CommandeDto();
         BeanUtils.copyProperties(item, dto);
+        dto.setEtatCommande(item.getEtatCommande().getLibelle());
         return dto;
     }
 

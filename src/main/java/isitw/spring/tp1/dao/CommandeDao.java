@@ -15,5 +15,5 @@ public interface CommandeDao extends JpaRepository<Commande, Long> {
     @Query("SELECT item FROM Commande item WHERE item.total >= :total")
     List<Commande> findByTotalLessThan(@Param("total") BigDecimal total);
     List<Commande> findByEtatCommandeCode(String code);
-    void deleteByRef(String ref);
+    int deleteByRef(String ref);
 }

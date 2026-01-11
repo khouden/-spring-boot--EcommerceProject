@@ -37,7 +37,6 @@ public class PaiementServiceImpl implements PaiementService {
         return dao.findByCommandeRef(ref);
     }
 
-    @Transactional
     @Override
     public int deleteByCommandeRef(String ref) {
         return dao.deleteByCommandeRef(ref);

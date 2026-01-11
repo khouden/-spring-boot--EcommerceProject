@@ -19,6 +19,7 @@ public class PaiementConverter {
     public PaiementDto toDto(Paiement paiement){
         PaiementDto dto = new PaiementDto();
         BeanUtils.copyProperties(paiement, dto);
+        dto.setCommandeRef(paiement.getCommande().getRef());
         return dto;
     }
 

@@ -8,6 +8,7 @@ public class CommandeDto {
     private String ref;
     private BigDecimal total;
     private BigDecimal totalPaye;
+    private String etatCommande;
 
 
     public String getRef() {
@@ -32,5 +33,13 @@ public class CommandeDto {
 
     public void setTotalPaye(BigDecimal totalPaye) {
         this.totalPaye = totalPaye;
+    }
+
+    public String getEtatCommande() {
+        return etatCommande;
+    }
+
+    public void setEtatCommande(String etatCommande) {
+        this.etatCommande = etatCommande;
     }
 }

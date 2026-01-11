@@ -7,6 +7,7 @@ public class PaiementDto {
     private String code;
     private BigDecimal montant;
     private LocalDateTime datePaiement;
+    private String commandeRef;
 
     public String getCode() {
         return code;
@@ -31,5 +32,9 @@ public class PaiementDto {
     public void setDatePaiement(LocalDateTime datePaiement) {
         this.datePaiement = datePaiement;
     }
+
+    public String getCommandeRef() {return commandeRef;}
+
+    public void setCommandeRef(String commandeRef) {this.commandeRef = commandeRef;}
 
 }

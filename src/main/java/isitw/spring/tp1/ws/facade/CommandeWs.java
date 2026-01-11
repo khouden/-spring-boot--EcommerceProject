@@ -38,7 +38,7 @@ public class CommandeWs {
         return converter.toDto(commande);
     }
 
-    @GetMapping("/etatCode/{code}")
+    @GetMapping("etatCode/{code}")
     public List<CommandeDto> findByEtatCommandeCode(@PathVariable String code) {
         List<Commande> commandes = service.findByEtatCommandeCode(code);
         return converter.toDtos(commandes);
